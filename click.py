@@ -1,11 +1,9 @@
-
 import requests
 import json
 from urllib.parse import urlparse
 import argparse
 from dotenv import load_dotenv,find_dotenv
 import os
-
 
 
 def shorten_link(token, url):
@@ -45,6 +43,7 @@ def is_bitlink(url):
     bitlink_parse = urlparse(bitlink)
     response = requests.get(f'https://api-ssl.bitly.com/v4/bitlinks/{correct_bitlink}', headers=headers)
     return response.ok
+
 
 def main():
     load_dotenv(find_dotenv())
